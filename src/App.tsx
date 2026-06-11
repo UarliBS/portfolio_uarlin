@@ -31,6 +31,7 @@ type Project = {
   bullets: string[];
   tags: string[];
   url?: string;
+  repositoryUrl?: string;
 };
 
 type TimelineItem = {
@@ -47,6 +48,7 @@ type Copy = {
     contact: string;
     resume: string;
     openProject: string;
+    repository: string;
     github: string;
     linkedin: string;
     email: string;
@@ -106,6 +108,7 @@ const copy: Record<Locale, Copy> = {
       contact: "Entrar em contato",
       resume: "Download CV",
       openProject: "Abrir projeto",
+      repository: "Ver repositório",
       github: "GitHub",
       linkedin: "LinkedIn",
       email: "E-mail",
@@ -184,7 +187,7 @@ const copy: Record<Locale, Copy> = {
             "Modelo de domínio para casais, metas, tarefas, check-ins, notificações, conquistas e arquivo.",
             "PostgreSQL com Flyway, Docker Compose, Web Push, Actuator, Prometheus e Grafana.",
           ],
-          tags: ["Next.js", "PWA", "Spring Boot", "PostgreSQL", "Flyway", "Web Push", "Docker"],
+          tags: ["Next.js", "React", "Spring Boot", "PostgreSQL", "Docker", "Cloudflare R2"],
           url: "https://www.buildingus.app",
         },
         {
@@ -192,22 +195,15 @@ const copy: Record<Locale, Copy> = {
           period: "Out 2025",
           status: "Microsserviços",
           description:
-            "Arquitetura de microsserviços em Java para controle de estoque e exibição de produtos em e-commerce.",
+            "Arquitetura de microsserviços em Java/Spring Boot para controle de estoque e vitrine de produtos.",
           bullets: [
-            "Endpoints REST para produtos e estoque.",
-            "Integração assíncrona entre serviços via RabbitMQ.",
-            "Persistência e testes com JPA e H2.",
-            "MapStruct, Lombok, OpenAPI e estrutura modular.",
+            "Dois serviços principais: Warehouse para estoque e Storefront para exibição de produtos.",
+            "Comunicação síncrona via HTTP e assíncrona via RabbitMQ/CloudAMQP.",
+            "Persistência com Spring Data JPA e H2 para ambiente de teste.",
+            "Mapeamento com MapStruct, redução de boilerplate com Lombok e documentação via SpringDoc OpenAPI.",
           ],
-          tags: [
-            "Java",
-            "Spring Boot",
-            "JPA",
-            "RabbitMQ",
-            "MapStruct",
-            "OpenAPI",
-            "H2",
-          ],
+          tags: ["Java", "Spring Boot", "RabbitMQ", "JPA", "MapStruct", "OpenAPI"],
+          repositoryUrl: "https://github.com/UarliBS/e-commerce_control",
         },
         {
           name: "LocalInfo",
@@ -221,15 +217,53 @@ const copy: Record<Locale, Copy> = {
             "Google Maps API e rotas dinâmicas por estabelecimento.",
             "Melhorias em controllers e estrutura de rotas.",
           ],
-          tags: [
-            "React",
-            "Vite",
-            "Node.js",
-            "Express",
-            "MongoDB",
-            "JWT",
-            "Google Maps",
+          tags: ["React", "Vite", "Node.js", "Express", "MongoDB", "Google Maps"],
+          repositoryUrl: "https://github.com/UarliBS/LocalInfo-Back",
+        },
+        {
+          name: "Java Bank",
+          period: "2025",
+          status: "Java",
+          description:
+            "Sistema bancário em Java desenvolvido para consolidar POO, simulando contas, PIX, investimentos e histórico de transações.",
+          bullets: [
+            "Criação de contas com saldo inicial, chaves PIX, depósitos, saques e transferências.",
+            "Carteiras de investimento com criação, atualização, rendimento e resgate.",
+            "Histórico/auditoria de movimentações com Money e MoneyAudit.",
+            "Uso de herança, encapsulamento, polimorfismo, records, enums, Streams e exceções customizadas.",
           ],
+          tags: ["Java", "Lombok", "OOP", "Streams"],
+          repositoryUrl: "https://github.com/UarliBS/Java-Bank",
+        },
+        {
+          name: "Intelligent Customer Service Chatbot",
+          period: "2025",
+          status: "WhatsApp chatbot",
+          description:
+            "Chatbot integrado ao WhatsApp para atendimento automatizado de uma oficina mecânica usando Python, Flask e Evolution API.",
+          bullets: [
+            "Webhook Flask para receber mensagens e responder pelo WhatsApp.",
+            "Menu interativo com consulta de serviços, preços e simulação de agendamento.",
+            "Evolution API com Baileys, PostgreSQL e Redis via Docker Compose.",
+            "Exposição local com ngrok para configurar eventos MESSAGES_UPSERT.",
+          ],
+          tags: ["Python", "Flask", "WhatsApp", "Evolution API", "Docker", "Redis"],
+          repositoryUrl: "https://github.com/UarliBS/intelligent_customer_service_chatbot",
+        },
+        {
+          name: "BI Retail",
+          period: "2025",
+          status: "Business Intelligence",
+          description:
+            "Protótipo front-end de Business Intelligence para varejo, feito com HTML, CSS e JavaScript puro.",
+          bullets: [
+            "Login simulado por cargo com controle de acesso por perfil.",
+            "Módulos de vendas, estoque, clientes, campanhas e relatórios de margem.",
+            "Filtros globais, gráficos em canvas, tabelas dinâmicas e alertas simulados.",
+            "Projeto sem backend, com dados e interações definidos diretamente no front-end.",
+          ],
+          tags: ["HTML", "CSS", "JavaScript", "Canvas", "Dashboard"],
+          repositoryUrl: "https://github.com/UarliBS/BI-System",
         },
       ],
     },
@@ -238,12 +272,12 @@ const copy: Record<Locale, Copy> = {
       title: "O que",
       accent: "uso",
       groups: [
-        { title: "Linguagens", items: ["Java", "JavaScript", "Python"] },
-        { title: "Frameworks", items: ["Spring Boot", "Spring Security", "Node.js", "Express", "React"] },
-        { title: "Banco de dados", items: ["MySQL", "MongoDB", "H2", "JPA / Hibernate"] },
-        { title: "Infraestrutura", items: ["Docker", "RabbitMQ", "REST APIs", "Google Maps API"] },
-        { title: "Segurança", items: ["JWT", "Web API", "JSON"] },
-        { title: "Ferramentas", items: ["Git", "GitHub", "DBeaver", "OpenAPI", "Bash"] },
+        { title: "Linguagens", items: ["Java 21", "TypeScript", "JavaScript", "Python"] },
+        { title: "Frontend", items: ["Next.js 16", "React 19", "Tailwind CSS"] },
+        { title: "Backend", items: ["Spring Boot 3", "Spring Security", "Spring Data JPA", "JPA / Hibernate", "Node.js", "Express", "OAuth2", "JWT"] },
+        { title: "Banco de dados", items: ["PostgreSQL", "MongoDB", "MySQL", "Redis"] },
+        { title: "Infra / Deploy", items: ["Docker", "Vercel", "Render", "Cloudflare R2", "Resend"] },
+        { title: "Ferramentas", items: ["Git", "GitHub", "OpenAPI", "Actuator", "Prometheus", "Grafana"] },
       ],
     },
     contact: {
@@ -260,6 +294,7 @@ const copy: Record<Locale, Copy> = {
       contact: "Get in touch",
       resume: "Download resume",
       openProject: "Open project",
+      repository: "View repository",
       github: "GitHub",
       linkedin: "LinkedIn",
       email: "Email",
@@ -338,7 +373,7 @@ const copy: Record<Locale, Copy> = {
             "Domain model for couples, goals, tasks, check-ins, notifications, achievements and archives.",
             "PostgreSQL with Flyway, Docker Compose, Web Push, Actuator, Prometheus and Grafana.",
           ],
-          tags: ["Next.js", "PWA", "Spring Boot", "PostgreSQL", "Flyway", "Web Push", "Docker"],
+          tags: ["Next.js", "React", "Spring Boot", "PostgreSQL", "Docker", "Cloudflare R2"],
           url: "https://www.buildingus.app",
         },
         {
@@ -346,14 +381,15 @@ const copy: Record<Locale, Copy> = {
           period: "Oct 2025",
           status: "Microservices",
           description:
-            "Java microservices architecture for inventory control and product display in an e-commerce platform.",
+            "Java/Spring Boot microservices architecture for inventory control and product storefront display.",
           bullets: [
-            "REST endpoints for product and stock management.",
-            "Asynchronous service integration with RabbitMQ.",
-            "Persistence and tests with JPA and H2.",
-            "MapStruct, Lombok, OpenAPI and modular structure.",
+            "Two main services: Warehouse for stock management and Storefront for product display.",
+            "Synchronous HTTP communication and asynchronous messaging through RabbitMQ/CloudAMQP.",
+            "Persistence with Spring Data JPA and H2 for the test environment.",
+            "DTO/entity mapping with MapStruct, boilerplate reduction with Lombok and API docs with SpringDoc OpenAPI.",
           ],
-          tags: ["Java", "Spring Boot", "JPA", "RabbitMQ", "MapStruct", "OpenAPI", "H2"],
+          tags: ["Java", "Spring Boot", "RabbitMQ", "JPA", "MapStruct", "OpenAPI"],
+          repositoryUrl: "https://github.com/UarliBS/e-commerce_control",
         },
         {
           name: "LocalInfo",
@@ -367,7 +403,53 @@ const copy: Record<Locale, Copy> = {
             "Google Maps API and dynamic routes by business ID.",
             "Improvements in controllers and route structure.",
           ],
-          tags: ["React", "Vite", "Node.js", "Express", "MongoDB", "JWT", "Google Maps"],
+          tags: ["React", "Vite", "Node.js", "Express", "MongoDB", "Google Maps"],
+          repositoryUrl: "https://github.com/UarliBS/LocalInfo-Back",
+        },
+        {
+          name: "Java Bank",
+          period: "2025",
+          status: "Java",
+          description:
+            "Java banking system built to consolidate OOP concepts, simulating accounts, PIX transfers, investments and transaction history.",
+          bullets: [
+            "Account creation with initial balance, PIX keys, deposits, withdrawals and transfers.",
+            "Investment wallets with creation, updates, earnings simulation and withdrawals.",
+            "Transaction history/auditing with Money and MoneyAudit.",
+            "Use of inheritance, encapsulation, polymorphism, records, enums, Streams and custom exceptions.",
+          ],
+          tags: ["Java", "Lombok", "OOP", "Streams"],
+          repositoryUrl: "https://github.com/UarliBS/Java-Bank",
+        },
+        {
+          name: "Intelligent Customer Service Chatbot",
+          period: "2025",
+          status: "WhatsApp chatbot",
+          description:
+            "WhatsApp customer service chatbot for an auto repair shop, built with Python, Flask and Evolution API.",
+          bullets: [
+            "Flask webhook to receive messages and answer through WhatsApp.",
+            "Interactive menu with services, prices and appointment simulation.",
+            "Evolution API with Baileys, PostgreSQL and Redis through Docker Compose.",
+            "Local exposure with ngrok to configure MESSAGES_UPSERT events.",
+          ],
+          tags: ["Python", "Flask", "WhatsApp", "Evolution API", "Docker", "Redis"],
+          repositoryUrl: "https://github.com/UarliBS/intelligent_customer_service_chatbot",
+        },
+        {
+          name: "BI Retail",
+          period: "2025",
+          status: "Business Intelligence",
+          description:
+            "Retail Business Intelligence front-end prototype built with plain HTML, CSS and JavaScript.",
+          bullets: [
+            "Simulated role-based login with access control by profile.",
+            "Sales, inventory, customer, campaign and margin-report modules.",
+            "Global filters, canvas charts, dynamic tables and simulated alerts.",
+            "No backend dependency, with data and interactions defined directly in the front-end.",
+          ],
+          tags: ["HTML", "CSS", "JavaScript", "Canvas", "Dashboard"],
+          repositoryUrl: "https://github.com/UarliBS/BI-System",
         },
       ],
     },
@@ -376,12 +458,12 @@ const copy: Record<Locale, Copy> = {
       title: "What",
       accent: "I use",
       groups: [
-        { title: "Languages", items: ["Java", "JavaScript", "Python"] },
-        { title: "Frameworks", items: ["Spring Boot", "Spring Security", "Node.js", "Express", "React"] },
-        { title: "Databases", items: ["MySQL", "MongoDB", "H2", "JPA / Hibernate"] },
-        { title: "Infrastructure", items: ["Docker", "RabbitMQ", "REST APIs", "Google Maps API"] },
-        { title: "Security", items: ["JWT", "Web API", "JSON"] },
-        { title: "Tools", items: ["Git", "GitHub", "DBeaver", "OpenAPI", "Bash"] },
+        { title: "Languages", items: ["Java 21", "TypeScript", "JavaScript", "Python"] },
+        { title: "Frontend", items: ["Next.js 16", "React 19", "Tailwind CSS"] },
+        { title: "Backend", items: ["Spring Boot 3", "Spring Security", "Spring Data JPA", "JPA / Hibernate", "Node.js", "Express", "OAuth2", "JWT"] },
+        { title: "Databases", items: ["PostgreSQL", "MongoDB", "MySQL", "Redis"] },
+        { title: "Infra / Deploy", items: ["Docker", "Vercel", "Render", "Cloudflare R2", "Resend"] },
+        { title: "Tools", items: ["Git", "GitHub", "OpenAPI", "Actuator", "Prometheus", "Grafana"] },
       ],
     },
     contact: {
@@ -536,17 +618,9 @@ function App() {
               </a>
             </div>
           </div>
-          <div className="profile-card" data-reveal>
-            <span className="profile-label">Feira de Santana, BA</span>
-            <strong>Full Stack</strong>
-            <p>Java / Spring Boot / React / Node.js</p>
-            <div className="profile-grid">
-              <span>REST</span>
-              <span>JWT</span>
-              <span>SQL</span>
-              <span>NoSQL</span>
-            </div>
-          </div>
+          <figure className="profile-photo-card" data-reveal>
+            <img src="/warllen-profile.png" alt="Foto de Warllen Barreiros" />
+          </figure>
         </section>
 
         <SectionHeader
@@ -556,10 +630,15 @@ function App() {
           accent={t.journey.accent}
         />
         <section className="timeline">
-          {t.journey.items.map((item) => (
+          {t.journey.items.map((item, index) => (
             <article className="timeline-item" data-reveal key={`${item.period}-${item.title}`}>
-              <time>{item.period}</time>
-              <div>
+              <div className="timeline-marker" aria-hidden="true">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+              </div>
+              <div className="timeline-period">
+                <time>{item.period}</time>
+              </div>
+              <div className="timeline-content">
                 <h3>{item.title}</h3>
                 <span>{item.place}</span>
                 <p>{item.description}</p>
@@ -599,6 +678,16 @@ function App() {
               {project.url && (
                 <a className="project-link" href={project.url} target="_blank" rel="noreferrer">
                   {t.actions.openProject} <Icon name="arrow" />
+                </a>
+              )}
+              {project.repositoryUrl && (
+                <a
+                  className="project-link project-link-secondary"
+                  href={project.repositoryUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Icon name="github" /> {t.actions.repository}
                 </a>
               )}
             </article>
@@ -659,9 +748,22 @@ function App() {
 }
 
 function TechLogo({ label }: { label: string }) {
+  const [failed, setFailed] = useState(false);
   const logo = getTechLogo(label);
 
-  if (logo.slug) {
+  if (logo.slug === "local-java-cup") {
+    return <JavaCupLogo />;
+  }
+
+  if (logo.slug === "local-rabbitmq") {
+    return <RabbitMqLogo />;
+  }
+
+  if (logo.slug === "local-css3") {
+    return <CssLogo />;
+  }
+
+  if (logo.slug && !failed) {
     const color = logo.color ?? "4B8CFF";
     return (
       <img
@@ -670,6 +772,7 @@ function TechLogo({ label }: { label: string }) {
         alt=""
         loading="lazy"
         aria-hidden="true"
+        onError={() => setFailed(true)}
       />
     );
   }
@@ -686,46 +789,75 @@ function getTechLogo(label: string): TechLogoData {
 
   const logos: Array<[string, TechLogoData]> = [
     ["javascript", { slug: "javascript", color: "F7DF1E" }],
-    ["java", { slug: "openjdk", color: "ED8B00" }],
+    ["java", { slug: "local-java-cup" }],
+    ["lombok", { fallback: "LB" }],
+    ["streams", { fallback: "ST" }],
     ["next.js", { slug: "nextdotjs", color: "FFFFFF" }],
     ["next", { slug: "nextdotjs", color: "FFFFFF" }],
-    ["pwa", { slug: "pwa", color: "5A0FC8" }],
+    ["tailwind", { slug: "tailwindcss", color: "06B6D4" }],
+    ["pwa", { fallback: "PWA" }],
+    ["service worker", { fallback: "SW" }],
     ["typescript", { slug: "typescript", color: "3178C6" }],
     ["python", { slug: "python", color: "3776AB" }],
+    ["flask", { slug: "flask", color: "FFFFFF" }],
+    ["whatsapp", { slug: "whatsapp", color: "25D366" }],
+    ["evolution api", { fallback: "EV" }],
+    ["redis", { slug: "redis", color: "FF4438" }],
+    ["oop", { fallback: "OO" }],
+    ["chatbot", { fallback: "AI" }],
     ["spring security", { slug: "springsecurity", color: "6DB33F" }],
+    ["spring data", { slug: "spring", color: "6DB33F" }],
     ["spring boot", { slug: "springboot", color: "6DB33F" }],
+    ["oauth2", { fallback: "OA" }],
+    ["microservices", { fallback: "MS" }],
     ["node", { slug: "nodedotjs", color: "5FA04E" }],
     ["express", { slug: "express", color: "FFFFFF" }],
     ["react", { slug: "react", color: "61DAFB" }],
     ["mysql", { slug: "mysql", color: "4479A1" }],
     ["postgresql", { slug: "postgresql", color: "4169E1" }],
-    ["flyway", { slug: "flyway", color: "CC0200" }],
+    ["neon", { fallback: "NE" }],
+    ["sql", { fallback: "SQL" }],
+    ["dashboard", { fallback: "BI" }],
+    ["canvas", { fallback: "CV" }],
+    ["data", { fallback: "DB" }],
+    ["bi", { fallback: "BI" }],
+    ["flyway", { fallback: "FW" }],
     ["mongodb", { slug: "mongodb", color: "47A248" }],
     ["hibernate", { slug: "hibernate", color: "BCAE79" }],
     ["jpa", { slug: "hibernate", color: "BCAE79" }],
     ["docker", { slug: "docker", color: "2496ED" }],
+    ["vercel", { slug: "vercel", color: "FFFFFF" }],
+    ["render", { slug: "render", color: "46E3B7" }],
+    ["cloudflare r2", { slug: "cloudflare", color: "F38020" }],
+    ["resend", { fallback: "RS" }],
     ["s3", { slug: "amazons3", color: "569A31" }],
-    ["web push", { slug: "webpush", color: "339933" }],
+    ["web push", { fallback: "WP" }],
     ["prometheus", { slug: "prometheus", color: "E6522C" }],
     ["grafana", { slug: "grafana", color: "F46800" }],
-    ["rabbit", { slug: "rabbitmq", color: "FF6600" }],
+    ["actuator", { fallback: "AC" }],
+    ["playwright", { slug: "playwright", color: "2EAD33" }],
+    ["testcontainers", { slug: "testcontainers", color: "2496ED" }],
+    ["rabbit", { slug: "local-rabbitmq" }],
+    ["cloudamqp", { slug: "local-rabbitmq" }],
     ["google maps", { slug: "googlemaps", color: "4285F4" }],
     ["jwt", { slug: "jsonwebtokens", color: "D63AFF" }],
     ["json", { slug: "json", color: "F5F5F5" }],
     ["github", { slug: "github", color: "FFFFFF" }],
     ["git", { slug: "git", color: "F05032" }],
-    ["dbeaver", { slug: "dbeaver", color: "897263" }],
+    ["dbeaver", { fallback: "DB" }],
     ["openapi", { slug: "openapiinitiative", color: "6BA539" }],
     ["bash", { slug: "gnubash", color: "4EAA25" }],
     ["vite", { slug: "vite", color: "646CFF" }],
     ["html", { slug: "html5", color: "E34F26" }],
-    ["css", { slug: "css", color: "663399" }],
+    ["css", { slug: "local-css3" }],
     ["axios", { slug: "axios", color: "5A29E4" }],
     ["mapstruct", { fallback: "MS" }],
     ["lombok", { fallback: "LB" }],
   ];
 
-  const match = logos.find(([term]) => normalized.includes(term));
+  const match = logos.find(([term]) =>
+    term.length <= 3 ? normalized === term : normalized.includes(term),
+  );
   if (match) {
     return match[1];
   }
@@ -743,6 +875,68 @@ function getTechLogo(label: string): TechLogoData {
   }
 
   return { fallback: label.slice(0, 2).toUpperCase() };
+}
+
+function JavaCupLogo() {
+  return (
+    <svg
+      className="tech-logo java-cup-logo"
+      viewBox="0 0 32 32"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M13.6 4.2c2.9 2.4-4.2 4.7-1.8 7.5 1 1.2 2.4 1.8 2.4 1.8s-4.5-.7-5.2-3.1c-.6-2.1 4.1-3.8 4.6-6.2Z"
+        fill="#F89820"
+      />
+      <path
+        d="M18.6 2.8c3.4 3.3-5.6 5.4-2.2 9.1.8.9 1.7 1.4 1.7 1.4s-3.1-.4-4.2-2.3c-1.7-2.9 5.2-4.5 4.7-8.2Z"
+        fill="#F89820"
+      />
+      <path
+        d="M8.5 17.8c3.9 1.1 10.8.9 14.2-.3.8-.3 1.4-.7 1.4-1.1 0-.8-2.3-1.4-4.2-1.7l.5-.4c3.9.5 6.6 1.6 6.6 3 0 2.4-7.4 4-14.3 3.3-4.6-.5-7.7-1.8-7.7-3.1 0-.9 1.4-1.7 3.9-2.2l-.4.5c-1.2.3-1.9.7-1.9 1.1 0 .3.7.7 1.9.9Z"
+        fill="#5382A1"
+      />
+      <path
+        d="M10.2 22.2c4.3.8 9.9.5 13.1-.7 0 0-.5 1.1-5.6 1.9-5.8.9-10.4-.2-10.4-1.5 0-.5.8-.9 2.3-1.2 0 0-.3.3-.4.6-.1.4.3.7 1 .9Z"
+        fill="#5382A1"
+      />
+      <path
+        d="M24.5 23.8c-5 2-15.6 1.8-15.6.3 0-.4.6-.8 1.6-1.1 0 0-.3.3-.2.6.4 1 8.2 1.2 14.2.2Z"
+        fill="#5382A1"
+      />
+      <path
+        d="M11.2 27.2c4.8.8 12.2-.1 12.4-1.6 0 0 .4.5-.5 1.1-2.1 1.5-10.3 1.8-13.1.5-.9-.4-.5-1 .2-1.4 0 0-.2.8 1 1.4Z"
+        fill="#5382A1"
+      />
+    </svg>
+  );
+}
+
+function RabbitMqLogo() {
+  return (
+    <svg className="tech-logo" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path
+        d="M5 6.8C5 5.8 5.8 5 6.8 5h2.4c1 0 1.8.8 1.8 1.8v5.4h2.5V6.8c0-1 .8-1.8 1.8-1.8h2.4c1 0 1.8.8 1.8 1.8v5.4h4.7c1 0 1.8.8 1.8 1.8v10.2c0 1-.8 1.8-1.8 1.8H6.8c-1 0-1.8-.8-1.8-1.8V6.8Z"
+        fill="#FF6600"
+      />
+      <path d="M19.6 17.1h3.7v3.7h-3.7v-3.7Z" fill="#fff" />
+      <path d="M13.5 17.1h3.7v3.7h-3.7v-3.7Z" fill="#fff" opacity="0.92" />
+    </svg>
+  );
+}
+
+function CssLogo() {
+  return (
+    <svg className="tech-logo" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <path d="M6 3h20l-1.8 22.1L16 29l-8.2-3.9L6 3Z" fill="#1572B6" />
+      <path d="M16 5v21.8l6.5-3 1.5-18.8H16Z" fill="#33A9DC" />
+      <path
+        d="M10.1 9.4h11.8l-.3 3.1h-8.1l.2 2.6h7.7l-.6 6.2-4.8 2.1-4.9-2.1-.3-3.5h3.1l.1 1.4 2 .8 2-.8.2-1.5h-7.7l-.8-8.3Z"
+        fill="#fff"
+      />
+    </svg>
+  );
 }
 
 function Icon({ name }: { name: IconName }) {
