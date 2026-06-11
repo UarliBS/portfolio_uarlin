@@ -78,7 +78,7 @@ const links = {
 
 const copy: Record<Locale, Copy> = {
   pt: {
-    nav: ["Sobre", "Trajetória", "Projetos", "Skills"],
+    nav: ["Sobre", "Projetos", "Skills", "Contato"],
     actions: {
       projects: "Ver projetos",
       contact: "Entrar em contato",
@@ -214,7 +214,7 @@ const copy: Record<Locale, Copy> = {
     },
   },
   en: {
-    nav: ["About", "Journey", "Projects", "Skills"],
+    nav: ["About", "Projects", "Skills", "Contact"],
     actions: {
       projects: "View projects",
       contact: "Get in touch",
@@ -357,7 +357,7 @@ function useReveal() {
 function App() {
   const [locale, setLocale] = useState<Locale>("pt");
   const t = copy[locale];
-  const navTargets = useMemo(() => ["about", "journey", "projects", "skills"], []);
+  const navTargets = useMemo(() => ["about", "projects", "skills", "contact"], []);
 
   useReveal();
 
@@ -372,7 +372,7 @@ function App() {
 
       <header className="nav">
         <a className="brand" href="#top" aria-label="Warllen Barreiros">
-          WB
+          WARLLEN BARREIROS
         </a>
         <nav className="nav-links" aria-label="Navegação principal">
           {t.nav.map((item, index) => (
@@ -546,7 +546,7 @@ function App() {
           ))}
         </section>
 
-        <section className="contact" data-reveal>
+        <section className="contact" id="contact" data-reveal>
           <p className="eyebrow">{t.contact.eyebrow}</p>
           <h2>
             {t.contact.title} <span>{t.contact.accent}</span>
