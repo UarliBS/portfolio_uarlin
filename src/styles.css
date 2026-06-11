@@ -206,8 +206,8 @@ p {
 
 h1 {
   margin-bottom: 1rem;
-  font-size: clamp(4.3rem, 12vw, 8.8rem);
-  line-height: 0.82;
+  font-size: clamp(3.4rem, 8.4vw, 6.3rem);
+  line-height: 0.9;
   letter-spacing: 0;
 }
 
@@ -248,6 +248,7 @@ h1 span {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.45rem;
   padding: 0.75rem 1.1rem;
   border-radius: 8px;
   border: 1px solid var(--line);
@@ -262,6 +263,15 @@ h1 span {
 
 .button:hover {
   transform: translateY(-2px);
+}
+
+.button svg,
+.social-row svg,
+.tag-row svg,
+.skill-group svg {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
 }
 
 .button.primary {
@@ -295,6 +305,13 @@ h1 span {
   animation: rotate 20s linear infinite;
 }
 
+.orbit-secondary {
+  width: min(24rem, 64vw);
+  opacity: 0.55;
+  animation-duration: 28s;
+  animation-direction: reverse;
+}
+
 .orbit::before,
 .orbit::after {
   content: "";
@@ -316,6 +333,65 @@ h1 span {
   left: 3.4rem;
   background: var(--green);
   box-shadow: 0 0 34px var(--green);
+}
+
+.orbit-secondary::before {
+  top: 7.3rem;
+  right: -0.15rem;
+  width: 0.58rem;
+  background: var(--blue);
+  box-shadow: 0 0 30px var(--blue);
+}
+
+.orbit-secondary::after {
+  bottom: 6.4rem;
+  left: 0.1rem;
+  width: 0.52rem;
+  background: var(--cyan);
+  box-shadow: 0 0 30px var(--cyan);
+}
+
+.orbit-dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  animation: rotate 34s linear infinite;
+}
+
+.orbit-dots span {
+  position: absolute;
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 999px;
+  background: var(--blue);
+  box-shadow: 0 0 22px currentColor;
+}
+
+.orbit-dots span:nth-child(1) {
+  top: 18%;
+  left: 30%;
+  color: var(--blue);
+}
+
+.orbit-dots span:nth-child(2) {
+  top: 33%;
+  right: 3%;
+  color: var(--green);
+  background: var(--green);
+}
+
+.orbit-dots span:nth-child(3) {
+  right: 22%;
+  bottom: 12%;
+  color: var(--cyan);
+  background: var(--cyan);
+}
+
+.orbit-dots span:nth-child(4) {
+  left: 4%;
+  bottom: 35%;
+  color: var(--violet);
+  background: var(--violet);
 }
 
 .code-card {
@@ -426,16 +502,16 @@ h1 span {
 .contact h2 {
   margin: 0;
   color: var(--text);
-  font-size: clamp(2.4rem, 6vw, 4.1rem);
-  line-height: 0.98;
+  font-size: clamp(2.05rem, 4.6vw, 3.35rem);
+  line-height: 1.05;
   letter-spacing: 0;
 }
 
 .section-header h2 span,
 .contact h2 span {
-  color: var(--blue);
-  font-style: italic;
-  font-weight: 500;
+  color: var(--text);
+  font-style: normal;
+  font-weight: inherit;
 }
 
 .section-grid {
@@ -462,6 +538,9 @@ h1 span {
 }
 
 .social-row a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   padding: 0.58rem 0.8rem;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -654,49 +733,111 @@ h1 span {
 
 .tag-row span,
 .skill-group span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   padding: 0.45rem 0.62rem;
   font-size: 0.72rem;
   font-weight: 800;
 }
 
+.tech-logo {
+  width: 1.08rem;
+  height: 1.08rem;
+  flex: 0 0 auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(75, 140, 255, 0.16));
+}
+
+.tech-logo-fallback {
+  width: 1.08rem;
+  height: 1.08rem;
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid rgba(75, 140, 255, 0.42);
+  border-radius: 4px;
+  color: var(--blue);
+  font-size: 0.52rem;
+  font-weight: 900;
+  line-height: 1;
+  background: rgba(75, 140, 255, 0.09);
+}
+
 .skills {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(1rem, 2.4vw, 2rem);
 }
 
 .skill-group {
-  min-height: 16rem;
-  padding: 1rem;
-  border: 1px solid rgba(148, 163, 184, 0.13);
-  border-radius: 8px;
-  background: rgba(17, 23, 35, 0.38);
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .skill-group h3 {
+  padding-bottom: 0.9rem;
   margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.16);
   color: var(--blue);
+  letter-spacing: 0.18em;
 }
 
 .skill-group div {
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0.7rem;
+}
+
+.skill-group span {
+  min-height: 3.55rem;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-color: rgba(148, 163, 184, 0.16);
+  background: rgba(17, 23, 35, 0.36);
+  color: #dbeafe;
+  font-size: 0.84rem;
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.skill-group span:hover {
+  border-color: rgba(75, 140, 255, 0.38);
+  background: rgba(17, 23, 35, 0.58);
+  transform: translateY(-2px);
+}
+
+.skill-group svg {
+  color: var(--blue);
 }
 
 .contact {
   margin: 8rem 0 4rem;
   padding: clamp(1.5rem, 5vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border: 1px solid rgba(148, 163, 184, 0.14);
   border-radius: 8px;
+  text-align: center;
   background:
     radial-gradient(circle at 82% 20%, rgba(117, 224, 167, 0.12), transparent 18rem),
     linear-gradient(145deg, rgba(17, 23, 35, 0.7), rgba(8, 12, 20, 0.9));
 }
 
+.contact .eyebrow {
+  justify-content: center;
+}
+
 .contact p:not(.eyebrow) {
   max-width: 42rem;
   margin-top: 1rem;
+}
+
+.contact .hero-actions {
+  justify-content: center;
 }
 
 footer {
@@ -782,7 +923,7 @@ footer {
   }
 
   h1 {
-    font-size: clamp(3.5rem, 21vw, 5.4rem);
+    font-size: clamp(3rem, 16vw, 4.4rem);
   }
 
   .metric-row,

@@ -3,6 +3,25 @@
 import { useEffect, useMemo, useState } from "react";
 
 type Locale = "pt" | "en";
+type IconName =
+  | "arrow"
+  | "download"
+  | "mail"
+  | "github"
+  | "linkedin"
+  | "code"
+  | "server"
+  | "database"
+  | "tool"
+  | "shield"
+  | "cloud"
+  | "api";
+
+type TechLogoData = {
+  slug?: string;
+  color?: string;
+  fallback?: string;
+};
 
 type Project = {
   name: string;
@@ -25,6 +44,7 @@ type Copy = {
   actions: {
     projects: string;
     contact: string;
+    resume: string;
     github: string;
     linkedin: string;
     email: string;
@@ -82,12 +102,13 @@ const copy: Record<Locale, Copy> = {
     actions: {
       projects: "Ver projetos",
       contact: "Entrar em contato",
+      resume: "Download CV",
       github: "GitHub",
       linkedin: "LinkedIn",
       email: "E-mail",
     },
     hero: {
-      eyebrow: "Desenvolvedor Full Stack em formação",
+      eyebrow: "Desenvolvedor Full Stack",
       name: "Warllen",
       surname: "Barreiros",
       role: "Java • Spring Boot • React • APIs REST",
@@ -199,11 +220,12 @@ const copy: Record<Locale, Copy> = {
       title: "O que",
       accent: "uso",
       groups: [
-        { title: "Linguagens", items: ["Java", "JavaScript", "Python", "HTML", "CSS", "Bash"] },
-        { title: "Frontend", items: ["React", "Vite", "React Router", "Axios", "CSS"] },
-        { title: "Backend", items: ["Spring Boot", "Node.js", "Express", "REST", "Web API", "JWT"] },
-        { title: "Dados", items: ["MySQL", "MongoDB", "DBeaver", "JSON", "H2"] },
-        { title: "Ferramentas", items: ["Git", "GitHub", "Docker", "RabbitMQ", "OpenAPI"] },
+        { title: "Linguagens", items: ["Java", "JavaScript", "Python"] },
+        { title: "Frameworks", items: ["Spring Boot", "Spring Security", "Node.js", "Express", "React"] },
+        { title: "Banco de dados", items: ["MySQL", "MongoDB", "H2", "JPA / Hibernate"] },
+        { title: "Infraestrutura", items: ["Docker", "RabbitMQ", "REST APIs", "Google Maps API"] },
+        { title: "Segurança", items: ["JWT", "Web API", "JSON"] },
+        { title: "Ferramentas", items: ["Git", "GitHub", "DBeaver", "OpenAPI", "Bash"] },
       ],
     },
     contact: {
@@ -218,6 +240,7 @@ const copy: Record<Locale, Copy> = {
     actions: {
       projects: "View projects",
       contact: "Get in touch",
+      resume: "Download resume",
       github: "GitHub",
       linkedin: "LinkedIn",
       email: "Email",
@@ -319,11 +342,12 @@ const copy: Record<Locale, Copy> = {
       title: "What",
       accent: "I use",
       groups: [
-        { title: "Languages", items: ["Java", "JavaScript", "Python", "HTML", "CSS", "Bash"] },
-        { title: "Frontend", items: ["React", "Vite", "React Router", "Axios", "CSS"] },
-        { title: "Backend", items: ["Spring Boot", "Node.js", "Express", "REST", "Web API", "JWT"] },
-        { title: "Data", items: ["MySQL", "MongoDB", "DBeaver", "JSON", "H2"] },
-        { title: "Tools", items: ["Git", "GitHub", "Docker", "RabbitMQ", "OpenAPI"] },
+        { title: "Languages", items: ["Java", "JavaScript", "Python"] },
+        { title: "Frameworks", items: ["Spring Boot", "Spring Security", "Node.js", "Express", "React"] },
+        { title: "Databases", items: ["MySQL", "MongoDB", "H2", "JPA / Hibernate"] },
+        { title: "Infrastructure", items: ["Docker", "RabbitMQ", "REST APIs", "Google Maps API"] },
+        { title: "Security", items: ["JWT", "Web API", "JSON"] },
+        { title: "Tools", items: ["Git", "GitHub", "DBeaver", "OpenAPI", "Bash"] },
       ],
     },
     contact: {
@@ -411,16 +435,23 @@ function App() {
             <p className="hero-description">{t.hero.description}</p>
             <div className="hero-actions">
               <a className="button primary" href="#projects">
-                {t.actions.projects}
+                {t.actions.projects} <Icon name="arrow" />
               </a>
-              <a className="button ghost" href={links.email}>
-                {t.actions.contact}
+              <a className="button ghost" href="/WarllenBarreiros-FS.pdf" download>
+                <Icon name="download" /> {t.actions.resume}
               </a>
             </div>
           </div>
 
           <div className="hero-visual" data-reveal>
             <div className="orbit" />
+            <div className="orbit orbit-secondary" />
+            <div className="orbit-dots" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+              <span />
+            </div>
             <div className="code-card">
               <div className="card-top">
                 <span />
@@ -458,12 +489,17 @@ function App() {
             ))}
             <div className="social-row">
               <a href={links.linkedin} target="_blank" rel="noreferrer">
+                <Icon name="linkedin" />
                 {t.actions.linkedin}
               </a>
               <a href={links.github} target="_blank" rel="noreferrer">
+                <Icon name="github" />
                 {t.actions.github}
               </a>
-              <a href={links.email}>{t.actions.email}</a>
+              <a href={links.email}>
+                <Icon name="mail" />
+                {t.actions.email}
+              </a>
             </div>
           </div>
           <div className="profile-card" data-reveal>
@@ -520,7 +556,10 @@ function App() {
               </ul>
               <div className="tag-row">
                 {project.tags.map((tag) => (
-                  <span key={tag}>{tag}</span>
+                  <span key={tag}>
+                    <TechLogo label={tag} />
+                    {tag}
+                  </span>
                 ))}
               </div>
             </article>
@@ -539,7 +578,10 @@ function App() {
               <h3>{group.title}</h3>
               <div>
                 {group.items.map((item) => (
-                  <span key={item}>{item}</span>
+                  <span key={item}>
+                    <TechLogo label={item} />
+                    {item}
+                  </span>
                 ))}
               </div>
             </article>
@@ -554,12 +596,15 @@ function App() {
           <p>{t.contact.text}</p>
           <div className="hero-actions">
             <a className="button primary" href={links.email}>
+              <Icon name="mail" />
               {t.actions.email}
             </a>
             <a className="button ghost" href={links.linkedin} target="_blank" rel="noreferrer">
+              <Icon name="linkedin" />
               {t.actions.linkedin}
             </a>
             <a className="button ghost" href={links.github} target="_blank" rel="noreferrer">
+              <Icon name="github" />
               {t.actions.github}
             </a>
           </div>
@@ -572,6 +617,186 @@ function App() {
       </footer>
     </div>
   );
+}
+
+function TechLogo({ label }: { label: string }) {
+  const logo = getTechLogo(label);
+
+  if (logo.slug) {
+    const color = logo.color ?? "4B8CFF";
+    return (
+      <img
+        className="tech-logo"
+        src={`https://cdn.simpleicons.org/${logo.slug}/${color}`}
+        alt=""
+        loading="lazy"
+        aria-hidden="true"
+      />
+    );
+  }
+
+  return (
+    <span className="tech-logo-fallback" aria-hidden="true">
+      {logo.fallback ?? label.slice(0, 2).toUpperCase()}
+    </span>
+  );
+}
+
+function getTechLogo(label: string): TechLogoData {
+  const normalized = label.toLowerCase();
+
+  const logos: Array<[string, TechLogoData]> = [
+    ["javascript", { slug: "javascript", color: "F7DF1E" }],
+    ["java", { slug: "openjdk", color: "ED8B00" }],
+    ["python", { slug: "python", color: "3776AB" }],
+    ["spring security", { slug: "springsecurity", color: "6DB33F" }],
+    ["spring boot", { slug: "springboot", color: "6DB33F" }],
+    ["node", { slug: "nodedotjs", color: "5FA04E" }],
+    ["express", { slug: "express", color: "FFFFFF" }],
+    ["react", { slug: "react", color: "61DAFB" }],
+    ["mysql", { slug: "mysql", color: "4479A1" }],
+    ["mongodb", { slug: "mongodb", color: "47A248" }],
+    ["hibernate", { slug: "hibernate", color: "BCAE79" }],
+    ["jpa", { slug: "hibernate", color: "BCAE79" }],
+    ["docker", { slug: "docker", color: "2496ED" }],
+    ["rabbit", { slug: "rabbitmq", color: "FF6600" }],
+    ["google maps", { slug: "googlemaps", color: "4285F4" }],
+    ["jwt", { slug: "jsonwebtokens", color: "D63AFF" }],
+    ["json", { slug: "json", color: "F5F5F5" }],
+    ["github", { slug: "github", color: "FFFFFF" }],
+    ["git", { slug: "git", color: "F05032" }],
+    ["dbeaver", { slug: "dbeaver", color: "897263" }],
+    ["openapi", { slug: "openapiinitiative", color: "6BA539" }],
+    ["bash", { slug: "gnubash", color: "4EAA25" }],
+    ["vite", { slug: "vite", color: "646CFF" }],
+    ["html", { slug: "html5", color: "E34F26" }],
+    ["css", { slug: "css", color: "663399" }],
+    ["axios", { slug: "axios", color: "5A29E4" }],
+    ["mapstruct", { fallback: "MS" }],
+    ["lombok", { fallback: "LB" }],
+  ];
+
+  const match = logos.find(([term]) => normalized.includes(term));
+  if (match) {
+    return match[1];
+  }
+
+  if (normalized.includes("rest")) {
+    return { fallback: "API" };
+  }
+
+  if (normalized.includes("web api")) {
+    return { fallback: "API" };
+  }
+
+  if (normalized.includes("h2")) {
+    return { fallback: "H2" };
+  }
+
+  return { fallback: label.slice(0, 2).toUpperCase() };
+}
+
+function Icon({ name }: { name: IconName }) {
+  const common = {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 2,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    "aria-hidden": true,
+  };
+
+  switch (name) {
+    case "arrow":
+      return (
+        <svg {...common}>
+          <path d="M5 12h14" />
+          <path d="m13 6 6 6-6 6" />
+        </svg>
+      );
+    case "download":
+      return (
+        <svg {...common}>
+          <path d="M12 3v12" />
+          <path d="m7 10 5 5 5-5" />
+          <path d="M5 21h14" />
+        </svg>
+      );
+    case "mail":
+      return (
+        <svg {...common}>
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <path d="m3 7 9 6 9-6" />
+        </svg>
+      );
+    case "github":
+      return (
+        <svg {...common}>
+          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5a10.4 10.4 0 0 0-6 0C8 2 7 2 7 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 6 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+          <path d="M9 18c-4.5 2-5-2-7-2" />
+        </svg>
+      );
+    case "linkedin":
+      return (
+        <svg {...common}>
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+          <rect x="2" y="9" width="4" height="12" />
+          <circle cx="4" cy="4" r="2" />
+        </svg>
+      );
+    case "server":
+      return (
+        <svg {...common}>
+          <rect x="3" y="4" width="18" height="6" rx="2" />
+          <rect x="3" y="14" width="18" height="6" rx="2" />
+          <path d="M7 7h.01" />
+          <path d="M7 17h.01" />
+        </svg>
+      );
+    case "database":
+      return (
+        <svg {...common}>
+          <ellipse cx="12" cy="5" rx="8" ry="3" />
+          <path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5" />
+          <path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" />
+        </svg>
+      );
+    case "tool":
+      return (
+        <svg {...common}>
+          <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-3-3 2.6-2.6z" />
+        </svg>
+      );
+    case "shield":
+      return (
+        <svg {...common}>
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+      );
+    case "cloud":
+      return (
+        <svg {...common}>
+          <path d="M17.5 19H8a5 5 0 1 1 1.1-9.88A7 7 0 0 1 22 12.5 4.5 4.5 0 0 1 17.5 19z" />
+        </svg>
+      );
+    case "api":
+      return (
+        <svg {...common}>
+          <path d="M8 9H4v6h4" />
+          <path d="M16 9h4v6h-4" />
+          <path d="m14 4-4 16" />
+        </svg>
+      );
+    case "code":
+    default:
+      return (
+        <svg {...common}>
+          <path d="m16 18 6-6-6-6" />
+          <path d="m8 6-6 6 6 6" />
+        </svg>
+      );
+  }
 }
 
 function SectionHeader({
