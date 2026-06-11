@@ -107,7 +107,7 @@ const copy: Record<Locale, Copy> = {
       projects: "Ver projetos",
       contact: "Entrar em contato",
       resume: "Download CV",
-      openProject: "Abrir projeto",
+      openProject: "Ver projeto",
       repository: "Ver repositório",
       github: "GitHub",
       linkedin: "LinkedIn",
@@ -121,9 +121,9 @@ const copy: Record<Locale, Copy> = {
       description:
         "Construo aplicações web com foco em backend, modelagem de dados e integrações reais. Estou em formação em Engenharia de Software e busco evoluir em ambientes colaborativos, práticos e bem estruturados.",
       metrics: [
-        { value: "2+", label: "projetos completos" },
+        { value: "4+", label: "projetos completos" },
         { value: "12+", label: "tecnologias na stack" },
-        { value: "C1", label: "inglês" },
+        { value: "2+", label: "anos de estudos práticos" },
       ],
       terminal: [
         "const profile = 'fullstack';",
@@ -155,25 +155,25 @@ const copy: Record<Locale, Copy> = {
             "Formação em andamento com foco em lógica de programação, arquitetura de computadores, algoritmos, estruturas de dados e machine learning.",
         },
         {
-          period: "Ago 2022 - Dez 2023",
-          title: "Análise e Desenvolvimento de Sistemas",
-          place: "Escola Técnica SENAI",
-          description:
-            "Base prática em POO, desenvolvimento web full stack, bancos SQL/NoSQL e versionamento com Git e GitHub.",
-        },
-        {
           period: "2023 - Atual",
           title: "Projetos acadêmicos e pessoais",
           place: "Java, Spring Boot, React, Node.js",
           description:
             "Desenvolvimento de aplicações com APIs REST, autenticação, microsserviços, integrações assíncronas e modelagem de dados.",
         },
+        {
+          period: "Ago 2022 - Dez 2023",
+          title: "Análise e Desenvolvimento de Sistemas",
+          place: "Escola Técnica SENAI",
+          description:
+            "Base prática em POO, desenvolvimento web full stack, bancos SQL/NoSQL e versionamento com Git e GitHub.",
+        },
       ],
     },
     projects: {
       eyebrow: "Projetos",
-      title: "Em",
-      accent: "produção",
+      title: "Meus projetos",
+      accent: "pessoais",
       items: [
         {
           name: "Building Us",
@@ -269,8 +269,8 @@ const copy: Record<Locale, Copy> = {
     },
     skills: {
       eyebrow: "Stack técnica",
-      title: "O que",
-      accent: "uso",
+      title: "Tecnologias que",
+      accent: "utilizo",
       groups: [
         { title: "Linguagens", items: ["Java 21", "TypeScript", "JavaScript", "Python"] },
         { title: "Frontend", items: ["Next.js 16", "React 19", "Tailwind CSS"] },
@@ -282,9 +282,9 @@ const copy: Record<Locale, Copy> = {
     },
     contact: {
       eyebrow: "Contato",
-      title: "Vamos",
-      accent: "conversar",
-      text: "Estou aberto a oportunidades para aprender, contribuir e construir produtos reais com bons times.",
+      title: "Entre em contato",
+      accent: "comigo",
+      text: "Estou aberto a oportunidades para aprender, contribuir, construir produtos reais com bons times e evoluir ainda mais profissionalmente.",
     },
   },
   en: {
@@ -630,14 +630,10 @@ function App() {
           accent={t.journey.accent}
         />
         <section className="timeline">
-          {t.journey.items.map((item, index) => (
+          {t.journey.items.map((item) => (
             <article className="timeline-item" data-reveal key={`${item.period}-${item.title}`}>
-              <div className="timeline-marker" aria-hidden="true">
-                <span>{String(index + 1).padStart(2, "0")}</span>
-              </div>
-              <div className="timeline-period">
-                <time>{item.period}</time>
-              </div>
+              <time>{item.period}</time>
+              <div className="timeline-marker" aria-hidden="true" />
               <div className="timeline-content">
                 <h3>{item.title}</h3>
                 <span>{item.place}</span>

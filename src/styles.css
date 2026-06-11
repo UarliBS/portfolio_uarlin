@@ -626,9 +626,9 @@ h1 span {
 .timeline::before {
   content: "";
   position: absolute;
-  top: 1.25rem;
-  bottom: 1.25rem;
-  left: 1.05rem;
+  top: 1.15rem;
+  bottom: 1.15rem;
+  left: 10.55rem;
   width: 1px;
   background: linear-gradient(180deg, transparent, rgba(40, 212, 216, 0.42), rgba(75, 140, 255, 0.22), transparent);
 }
@@ -636,19 +636,13 @@ h1 span {
 .timeline-item {
   position: relative;
   display: grid;
-  grid-template-columns: 2.1rem 11rem minmax(0, 1fr);
+  grid-template-columns: 8.5rem 2.1rem minmax(0, 1fr);
   gap: 1rem;
   align-items: start;
-  padding: 1.1rem 1.2rem 1.1rem 0;
-  border: 1px solid rgba(148, 163, 184, 0.13);
-  border-radius: 8px;
-  background:
-    linear-gradient(90deg, rgba(40, 212, 216, 0.08), transparent 32%),
-    rgba(17, 23, 35, 0.34);
-  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+  padding: 0;
 }
 
-.timeline-item:hover {
+.timeline-item:hover .timeline-content {
   transform: translateX(4px);
   border-color: rgba(40, 212, 216, 0.34);
   background:
@@ -663,6 +657,7 @@ h1 span {
   place-items: center;
   width: 2.1rem;
   height: 2.1rem;
+  margin-top: 1.05rem;
 }
 
 .timeline-marker::before {
@@ -674,19 +669,12 @@ h1 span {
   border-radius: 999px;
   background: var(--bg);
   box-shadow: 0 0 0 0.35rem rgba(40, 212, 216, 0.08), 0 0 28px rgba(40, 212, 216, 0.35);
+  transition: border-color 220ms ease, box-shadow 220ms ease;
 }
 
-.timeline-marker span {
-  transform: translateX(-2.6rem);
-  color: rgba(197, 208, 220, 0.36);
-  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0;
-}
-
-.timeline-period {
-  display: flex;
+.timeline-item:hover .timeline-marker::before {
+  border-color: var(--green);
+  box-shadow: 0 0 0 0.42rem rgba(117, 224, 167, 0.08), 0 0 32px rgba(40, 212, 216, 0.48);
 }
 
 .timeline-item time,
@@ -699,18 +687,22 @@ h1 span {
 }
 
 .timeline-item time {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.1rem;
-  padding: 0 0.65rem;
-  border: 1px solid rgba(148, 163, 184, 0.12);
-  border-radius: 999px;
-  background: rgba(6, 8, 13, 0.42);
-  color: var(--soft);
+  display: block;
+  padding-top: 1.52rem;
+  color: rgba(197, 208, 220, 0.62);
+  line-height: 1.35;
+  text-align: right;
 }
 
 .timeline-content {
   min-width: 0;
+  padding: 1.2rem 1.3rem;
+  border: 1px solid rgba(148, 163, 184, 0.13);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(40, 212, 216, 0.08), transparent 32%),
+    rgba(17, 23, 35, 0.34);
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
 }
 
 .timeline-item h3,
@@ -1050,28 +1042,30 @@ footer {
   }
 
   .timeline::before {
-    left: 1rem;
+    left: 6.8rem;
   }
 
   .timeline-item {
-    grid-template-columns: 2rem minmax(0, 1fr);
-    gap: 0.85rem;
+    grid-template-columns: 5.2rem 2rem minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+
+  .timeline-content {
+    grid-column: 3;
     padding: 1rem;
   }
 
-  .timeline-period,
-  .timeline-content {
-    grid-column: 2;
+  .timeline-item time {
+    grid-column: 1;
+    padding-top: 1.22rem;
+    font-size: 0.66rem;
+    text-align: right;
   }
 
   .timeline-marker {
-    grid-row: 1 / span 2;
     width: 2rem;
     height: 2rem;
-  }
-
-  .timeline-marker span {
-    display: none;
+    margin-top: 0.82rem;
   }
 
   .project-card {
