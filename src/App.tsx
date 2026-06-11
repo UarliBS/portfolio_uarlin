@@ -30,6 +30,7 @@ type Project = {
   description: string;
   bullets: string[];
   tags: string[];
+  url?: string;
 };
 
 type TimelineItem = {
@@ -45,6 +46,7 @@ type Copy = {
     projects: string;
     contact: string;
     resume: string;
+    openProject: string;
     github: string;
     linkedin: string;
     email: string;
@@ -103,6 +105,7 @@ const copy: Record<Locale, Copy> = {
       projects: "Ver projetos",
       contact: "Entrar em contato",
       resume: "Download CV",
+      openProject: "Abrir projeto",
       github: "GitHub",
       linkedin: "LinkedIn",
       email: "E-mail",
@@ -169,6 +172,21 @@ const copy: Record<Locale, Copy> = {
       title: "Em",
       accent: "produção",
       items: [
+        {
+          name: "Building Us",
+          period: "2026",
+          status: "PWA full stack",
+          description:
+            "PWA para casais gerenciarem metas compartilhadas, rotinas, tarefas, check-ins mensais e planos futuros.",
+          bullets: [
+            "Frontend mobile-first em Next.js/React com suporte PT/EN, service worker e fila offline.",
+            "Backend Java 21/Spring Boot com JWT, rotação de refresh token, OAuth2 e e-mail de verificação.",
+            "Modelo de domínio para casais, metas, tarefas, check-ins, notificações, conquistas e arquivo.",
+            "PostgreSQL com Flyway, Docker Compose, Web Push, Actuator, Prometheus e Grafana.",
+          ],
+          tags: ["Next.js", "PWA", "Spring Boot", "PostgreSQL", "Flyway", "Web Push", "Docker"],
+          url: "https://www.buildingus.app",
+        },
         {
           name: "E-Commerce Control",
           period: "Out 2025",
@@ -241,6 +259,7 @@ const copy: Record<Locale, Copy> = {
       projects: "View projects",
       contact: "Get in touch",
       resume: "Download resume",
+      openProject: "Open project",
       github: "GitHub",
       linkedin: "LinkedIn",
       email: "Email",
@@ -307,6 +326,21 @@ const copy: Record<Locale, Copy> = {
       title: "In",
       accent: "production",
       items: [
+        {
+          name: "Building Us",
+          period: "2026",
+          status: "Full-stack PWA",
+          description:
+            "PWA for couples to manage shared goals, routines, tasks, monthly check-ins and future plans.",
+          bullets: [
+            "Mobile-first Next.js/React frontend with PT/EN support, service worker and offline queue.",
+            "Java 21/Spring Boot backend with JWT, refresh-token rotation, OAuth2 and email verification.",
+            "Domain model for couples, goals, tasks, check-ins, notifications, achievements and archives.",
+            "PostgreSQL with Flyway, Docker Compose, Web Push, Actuator, Prometheus and Grafana.",
+          ],
+          tags: ["Next.js", "PWA", "Spring Boot", "PostgreSQL", "Flyway", "Web Push", "Docker"],
+          url: "https://www.buildingus.app",
+        },
         {
           name: "E-Commerce Control",
           period: "Oct 2025",
@@ -562,6 +596,11 @@ function App() {
                   </span>
                 ))}
               </div>
+              {project.url && (
+                <a className="project-link" href={project.url} target="_blank" rel="noreferrer">
+                  {t.actions.openProject} <Icon name="arrow" />
+                </a>
+              )}
             </article>
           ))}
         </section>
@@ -648,6 +687,10 @@ function getTechLogo(label: string): TechLogoData {
   const logos: Array<[string, TechLogoData]> = [
     ["javascript", { slug: "javascript", color: "F7DF1E" }],
     ["java", { slug: "openjdk", color: "ED8B00" }],
+    ["next.js", { slug: "nextdotjs", color: "FFFFFF" }],
+    ["next", { slug: "nextdotjs", color: "FFFFFF" }],
+    ["pwa", { slug: "pwa", color: "5A0FC8" }],
+    ["typescript", { slug: "typescript", color: "3178C6" }],
     ["python", { slug: "python", color: "3776AB" }],
     ["spring security", { slug: "springsecurity", color: "6DB33F" }],
     ["spring boot", { slug: "springboot", color: "6DB33F" }],
@@ -655,10 +698,16 @@ function getTechLogo(label: string): TechLogoData {
     ["express", { slug: "express", color: "FFFFFF" }],
     ["react", { slug: "react", color: "61DAFB" }],
     ["mysql", { slug: "mysql", color: "4479A1" }],
+    ["postgresql", { slug: "postgresql", color: "4169E1" }],
+    ["flyway", { slug: "flyway", color: "CC0200" }],
     ["mongodb", { slug: "mongodb", color: "47A248" }],
     ["hibernate", { slug: "hibernate", color: "BCAE79" }],
     ["jpa", { slug: "hibernate", color: "BCAE79" }],
     ["docker", { slug: "docker", color: "2496ED" }],
+    ["s3", { slug: "amazons3", color: "569A31" }],
+    ["web push", { slug: "webpush", color: "339933" }],
+    ["prometheus", { slug: "prometheus", color: "E6522C" }],
+    ["grafana", { slug: "grafana", color: "F46800" }],
     ["rabbit", { slug: "rabbitmq", color: "FF6600" }],
     ["google maps", { slug: "googlemaps", color: "4285F4" }],
     ["jwt", { slug: "jsonwebtokens", color: "D63AFF" }],

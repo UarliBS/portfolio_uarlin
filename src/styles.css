@@ -731,6 +731,34 @@ h1 span {
   margin-top: auto;
 }
 
+.project-link {
+  min-height: 2.65rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  padding: 0.72rem 0.95rem;
+  border: 1px solid rgba(75, 140, 255, 0.32);
+  border-radius: 8px;
+  color: var(--text);
+  background: rgba(75, 140, 255, 0.1);
+  font-size: 0.8rem;
+  font-weight: 900;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.project-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(40, 212, 216, 0.45);
+  background: rgba(40, 212, 216, 0.12);
+}
+
+.project-link svg {
+  width: 1rem;
+  height: 1rem;
+}
+
 .tag-row span,
 .skill-group span {
   display: inline-flex;
@@ -828,7 +856,8 @@ h1 span {
 }
 
 .contact .eyebrow {
-  justify-content: center;
+  align-self: stretch;
+  justify-content: flex-start;
 }
 
 .contact p:not(.eyebrow) {
