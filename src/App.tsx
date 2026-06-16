@@ -117,7 +117,7 @@ const copy: Record<Locale, Copy> = {
       eyebrow: "Desenvolvedor Full Stack",
       name: "Warllen",
       surname: "Barreiros",
-      role: "Java • Spring Boot • React • APIs REST",
+      role: "• JavaScript • Node.js • React • Express • MongoDB",
       description:
         "Construo aplicações web com foco em backend, modelagem de dados e integrações reais. Estou em formação em Engenharia de Software e busco evoluir em ambientes colaborativos, práticos e bem estruturados.",
       metrics: [
@@ -127,7 +127,7 @@ const copy: Record<Locale, Copy> = {
       ],
       terminal: [
         "const profile = 'fullstack';",
-        "stack.use(['Java', 'Spring Boot', 'React']);",
+        "stack.use(['JavaScript', 'Node.js', 'React']);",
         "api.design('REST', { auth: 'JWT' });",
         "deploy.with('Git', 'Docker', 'learning mindset');",
       ],
@@ -137,9 +137,10 @@ const copy: Record<Locale, Copy> = {
       title: "Quem",
       accent: "sou eu",
       paragraphs: [
-        "Sou desenvolvedor Full Stack em formação, com base sólida em Java, Spring Boot, bancos SQL e NoSQL. Gosto de transformar requisitos em APIs bem estruturadas, fluxos claros e interfaces que funcionam sem complicação.",
-        "Minha jornada passa por projetos acadêmicos e pessoais com REST APIs, autenticação JWT, integração com front-end, Google Maps API, RabbitMQ, JPA e boas práticas com Git/GitHub.",
-        "Atualmente curso Engenharia de Software na UNIFAN e busco uma oportunidade para aplicar meus conhecimentos, aprender com times experientes e crescer com responsabilidade.",
+        "Desde cedo sou apaixonado por tecnologia. Meu interesse começou com os jogos de computador, mas logo passei a me perguntar como tudo funcionava nos bastidores. Essa curiosidade me levou a aprender sobre sistemas operacionais, manutenção de computadores, resolução de problemas, montagem de hardware e diversas áreas da tecnologia.",
+        "Após concluir o ensino médio, decidi transformar esse interesse em carreira e iniciei minha jornada no desenvolvimento de software. Desde então, venho construindo projetos acadêmicos e pessoais, aplicando conceitos de desenvolvimento back-end e boas práticas de engenharia de software.",
+        "Tenho experiência com desenvolvimento de APIs REST, autenticação JWT, integração entre front-end e back-end, Google Maps API, RabbitMQ, JPA, bancos de dados relacionais e controle de versão com Git e GitHub. Estou sempre buscando aprender novas tecnologias e aprimorar minhas habilidades por meio de projetos práticos.",
+        "Atualmente curso Engenharia de Software na UNIFAN e busco uma oportunidade para contribuir com equipes de desenvolvimento, aplicar meus conhecimentos na prática e continuar evoluindo profissionalmente, enfrentando desafios que gerem impacto real.",
       ],
     },
     journey: {
@@ -281,7 +282,7 @@ const copy: Record<Locale, Copy> = {
       ],
     },
     contact: {
-      eyebrow: "Contato",
+      eyebrow: "Contatos",
       title: "Entre em contato",
       accent: "comigo",
       text: "Estou aberto a oportunidades para aprender, contribuir, construir produtos reais com bons times e evoluir ainda mais profissionalmente.",
@@ -303,7 +304,7 @@ const copy: Record<Locale, Copy> = {
       eyebrow: "Full Stack Developer in training",
       name: "Warllen",
       surname: "Barreiros",
-      role: "Java • Spring Boot • React • REST APIs",
+      role: "• JavaScript • Node.js • React • Express • MongoDB",
       description:
         "I build web applications with focus on backend, data modeling and real integrations. I am studying Software Engineering and looking to grow in collaborative, practical and well-structured teams.",
       metrics: [
@@ -313,7 +314,7 @@ const copy: Record<Locale, Copy> = {
       ],
       terminal: [
         "const profile = 'fullstack';",
-        "stack.use(['Java', 'Spring Boot', 'React']);",
+        "stack.use(['JavaScript', 'Node.js', 'React']);",
         "api.design('REST', { auth: 'JWT' });",
         "deploy.with('Git', 'Docker', 'learning mindset');",
       ],
@@ -323,9 +324,10 @@ const copy: Record<Locale, Copy> = {
       title: "Who",
       accent: "I am",
       paragraphs: [
-        "I am a Full Stack Developer in training, with a solid foundation in Java, Spring Boot, SQL and NoSQL databases. I enjoy turning requirements into well-structured APIs, clear flows and interfaces that work without friction.",
-        "My journey includes academic and personal projects with REST APIs, JWT authentication, front-end integration, Google Maps API, RabbitMQ, JPA and good practices with Git/GitHub.",
-        "I am currently studying Software Engineering at UNIFAN and looking for an opportunity to apply my knowledge, learn from experienced teams and grow with responsibility.",
+        "I have been passionate about technology from an early age. My interest started with computer games, but I soon began wondering how everything worked behind the scenes. That curiosity led me to learn about operating systems, computer maintenance, troubleshooting, hardware assembly and several areas of technology.",
+        "After finishing high school, I decided to turn that interest into a career and began my journey in software development. Since then, I have been building academic and personal projects, applying back-end development concepts and software engineering best practices.",
+        "I have experience with REST API development, JWT authentication, front-end and back-end integration, Google Maps API, RabbitMQ, JPA, relational databases and version control with Git and GitHub. I am always looking to learn new technologies and improve my skills through practical projects.",
+        "I am currently studying Software Engineering at UNIFAN and looking for an opportunity to contribute to development teams, apply my knowledge in practice and continue growing professionally while facing challenges that create real impact.",
       ],
     },
     journey: {
@@ -467,7 +469,7 @@ const copy: Record<Locale, Copy> = {
       ],
     },
     contact: {
-      eyebrow: "Contact",
+      eyebrow: "Contacts",
       title: "Let's",
       accent: "talk",
       text: "I am open to opportunities to learn, contribute and build real products with good teams.",
