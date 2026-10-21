@@ -1,7 +1,12 @@
 :root {
   color-scheme: dark;
   font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
     sans-serif;
   background: #06080d;
   color: #f4f7fb;
@@ -35,8 +40,16 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 78% 12%, rgba(75, 140, 255, 0.15), transparent 28rem),
-    radial-gradient(circle at 20% 55%, rgba(40, 212, 216, 0.08), transparent 34rem),
+    radial-gradient(
+      circle at 78% 12%,
+      rgba(75, 140, 255, 0.15),
+      transparent 28rem
+    ),
+    radial-gradient(
+      circle at 20% 55%,
+      rgba(40, 212, 216, 0.08),
+      transparent 34rem
+    ),
     linear-gradient(180deg, #06080d 0%, #090c12 47%, #05070b 100%);
 }
 
@@ -104,7 +117,9 @@ button {
   letter-spacing: 0.08em;
   line-height: 1;
   white-space: nowrap;
-  transition: color 180ms ease, transform 180ms ease;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
 }
 
 .brand:hover {
@@ -123,7 +138,9 @@ button {
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 700;
-  transition: color 180ms ease, transform 180ms ease;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
 }
 
 .nav-links a:hover,
@@ -548,7 +565,10 @@ h1 span {
   font-size: 0.78rem;
   font-weight: 800;
   background: rgba(17, 23, 35, 0.42);
-  transition: border-color 180ms ease, color 180ms ease, transform 180ms ease;
+  transition:
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
 }
 
 .social-row a:hover {
@@ -579,9 +599,15 @@ h1 span {
   inset: 2.25rem 0.2rem 0.15rem 2.4rem;
   border-radius: 8px;
   background:
-    radial-gradient(circle at 86% 25%, rgba(117, 224, 167, 0.28), transparent 4.5rem),
+    radial-gradient(
+      circle at 86% 25%,
+      rgba(117, 224, 167, 0.28),
+      transparent 4.5rem
+    ),
     linear-gradient(145deg, rgba(40, 212, 216, 0.8), rgba(75, 140, 255, 0.58));
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.36), 0 0 80px rgba(40, 212, 216, 0.16);
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.36),
+    0 0 80px rgba(40, 212, 216, 0.16);
 }
 
 .profile-photo-card::after {
@@ -630,7 +656,13 @@ h1 span {
   bottom: 1.15rem;
   left: 10.55rem;
   width: 1px;
-  background: linear-gradient(180deg, transparent, rgba(40, 212, 216, 0.42), rgba(75, 140, 255, 0.22), transparent);
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(40, 212, 216, 0.42),
+    rgba(75, 140, 255, 0.22),
+    transparent
+  );
 }
 
 .timeline-item {
@@ -668,13 +700,19 @@ h1 span {
   border: 2px solid rgba(40, 212, 216, 0.95);
   border-radius: 999px;
   background: var(--bg);
-  box-shadow: 0 0 0 0.35rem rgba(40, 212, 216, 0.08), 0 0 28px rgba(40, 212, 216, 0.35);
-  transition: border-color 220ms ease, box-shadow 220ms ease;
+  box-shadow:
+    0 0 0 0.35rem rgba(40, 212, 216, 0.08),
+    0 0 28px rgba(40, 212, 216, 0.35);
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .timeline-item:hover .timeline-marker::before {
   border-color: var(--green);
-  box-shadow: 0 0 0 0.42rem rgba(117, 224, 167, 0.08), 0 0 32px rgba(40, 212, 216, 0.48);
+  box-shadow:
+    0 0 0 0.42rem rgba(117, 224, 167, 0.08),
+    0 0 32px rgba(40, 212, 216, 0.48);
 }
 
 .timeline-item time,
@@ -702,7 +740,10 @@ h1 span {
   background:
     linear-gradient(90deg, rgba(40, 212, 216, 0.08), transparent 32%),
     rgba(17, 23, 35, 0.34);
-  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease;
 }
 
 .timeline-item h3,
@@ -739,7 +780,10 @@ h1 span {
   background:
     linear-gradient(180deg, rgba(75, 140, 255, 0.09), transparent 38%),
     rgba(17, 23, 35, 0.42);
-  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease;
 }
 
 .project-card:hover {
@@ -812,7 +856,10 @@ h1 span {
   background: rgba(75, 140, 255, 0.1);
   font-size: 0.8rem;
   font-weight: 900;
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
 }
 
 .project-link:hover {
@@ -905,7 +952,10 @@ h1 span {
   background: rgba(17, 23, 35, 0.36);
   color: #dbeafe;
   font-size: 0.84rem;
-  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
 }
 
 .skill-group div > span:hover {
@@ -928,7 +978,11 @@ h1 span {
   border-radius: 8px;
   text-align: center;
   background:
-    radial-gradient(circle at 82% 20%, rgba(117, 224, 167, 0.12), transparent 18rem),
+    radial-gradient(
+      circle at 82% 20%,
+      rgba(117, 224, 167, 0.12),
+      transparent 18rem
+    ),
     linear-gradient(145deg, rgba(17, 23, 35, 0.7), rgba(8, 12, 20, 0.9));
 }
 
@@ -958,9 +1012,16 @@ footer {
 }
 
 [data-reveal] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 450ms ease-out,
+    transform 450ms ease-out;
+}
+
+[data-reveal].reveal-pending {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 700ms ease, transform 700ms ease;
+  transform: translateY(16px);
 }
 
 [data-reveal].is-visible {
@@ -1075,4 +1136,118 @@ footer {
   footer {
     flex-direction: column;
   }
+}
+
+/* Keyboard access and compact navigation. */
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 5px;
+}
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 1rem;
+  z-index: 30;
+  padding: 0.8rem 1rem;
+  background: var(--panel);
+  transform: translateY(-150%);
+}
+.skip-link:focus {
+  transform: none;
+}
+.menu-toggle {
+  display: none;
+}
+.contact {
+  scroll-margin-top: 7rem;
+}
+@media (max-width: 920px) {
+  .nav {
+    grid-template-columns: 1fr auto auto;
+  }
+  .menu-toggle {
+    display: inline-flex;
+    padding: 0.65rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--text);
+    background: var(--panel);
+    cursor: pointer;
+  }
+  .locale-switch button {
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+  }
+  .nav-links.is-open {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 1rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-links a {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+@media (max-width: 380px) {
+  .nav {
+    gap: 0.4rem;
+  }
+  .brand {
+    font-size: 0.65rem;
+    letter-spacing: 0.02em;
+  }
+  .locale-switch {
+    gap: 0;
+    padding: 0;
+  }
+  .locale-switch button {
+    min-width: 2.3rem;
+  }
+}
+@media (max-width: 640px) {
+  .timeline-item {
+    grid-template-columns: 1.2rem minmax(0, 1fr);
+  }
+  .timeline::before {
+    left: 0.6rem;
+  }
+  .timeline-item time {
+    grid-column: 2;
+    text-align: left;
+    padding-top: 0;
+  }
+  .timeline-marker {
+    grid-column: 1;
+    grid-row: 2;
+    width: 1.2rem;
+  }
+  .timeline-content {
+    grid-column: 2;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal].reveal-pending {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.timeline-content p + p {
+  margin-top: 0.85rem;
+}
+.timeline-content .tag-row {
+  margin-top: 1rem;
+}
+.skills-description {
+  max-width: 48rem;
+  margin-bottom: 2rem;
+  color: var(--soft);
+  line-height: 1.8;
 }
