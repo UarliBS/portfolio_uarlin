@@ -1,13 +1,32 @@
 import type { Metadata } from "next";
+import { getSiteUrl } from "./site-url";
 import "../styles.css";
 
+const siteUrl = getSiteUrl();
+const title = "Warllen Barreiros | Backend e IA aplicada";
+const description =
+  "Desenvolvedor de software com foco em backend e IA aplicada à engenharia de software. Node.js, TypeScript, Java e Spring Boot, com revisão de código e validação.";
+
 export const metadata: Metadata = {
-  title: "Warllen Barreiros | Full Stack Developer",
-  description:
-    "Portfolio de Warllen Barreiros, desenvolvedor Full Stack em formacao com foco em Java, Spring Boot, React e APIs REST.",
+  title,
+  description,
+  ...(siteUrl ? { metadataBase: siteUrl, alternates: { canonical: "/" } } : {}),
+  openGraph: {
+    title,
+    description,
+    type: "website",
+    locale: "pt_BR",
+    siteName: "Warllen Barreiros",
+    ...(siteUrl ? { url: siteUrl } : {}),
+  },
+  twitter: { card: "summary_large_image", title, description },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="pt-BR">
       <body>{children}</body>
